@@ -1,0 +1,137 @@
+# Parchive Configuration File
+# -------------------------
+# This file contains configuration settings for the podcast archiving tool.
+# You can customize these settings to match your preferences.
+
+# General Settings
+# ---------------
+general:
+  # Directory where podcast files will be downloaded
+  download_directory: "downloads"
+  
+  # Default naming format for downloaded files
+  # Available placeholders: {episode_number}, {hash}, {title}
+  filename_format: "{episode_number}_{hash}"
+  
+  # Whether to create a separate subfolder for each show (by ID)
+  use_show_id_folders: true
+  
+  # Maximum parallel downloads (0 for unlimited)
+  max_parallel_downloads: 3
+  
+  # Connect timeout in seconds for network operations
+  connect_timeout: 30
+  
+  # Read timeout in seconds for network operations
+  read_timeout: 60
+
+# Database Settings
+# ---------------
+database:
+  # Database file path (relative to application directory)
+  path: "app/data/urls.db"
+  
+  # Whether to back up the database before migrations
+  backup_before_migration: true
+  
+  # Backup directory
+  backup_directory: "backups"
+  
+  # Maximum number of backups to keep
+  max_backups: 5
+
+# Download Settings
+# ---------------
+downloads:
+  # Whether to automatically download cover images
+  download_covers: true
+  
+  # Whether to automatically download episode images
+  download_episode_images: true
+  
+  # Whether to save a copy of the RSS feed
+  save_feed_xml: true
+  
+  # Whether to save metadata.json file with show information
+  save_metadata_json: true
+  
+  # Maximum retry attempts for failed downloads
+  max_retries: 3
+  
+  # Seconds to wait between retries
+  retry_delay: 5
+  
+  # Whether to skip files that already exist
+  skip_existing_files: true
+  
+  # Audio formats to download (in order of preference)
+  preferred_formats: ["mp3", "m4a", "ogg", "aac"]
+  
+  # Minimum acceptable audio quality (kbps)
+  min_audio_quality: 64
+
+# AI Analysis Settings
+# ------------------
+ai:
+  # Whether AI functionality is enabled
+  enabled: true
+  
+  # AI model host
+  host: "localhost"
+  
+  # AI model port
+  port: 12434
+  
+  # AI model endpoint path
+  endpoint: "/engines/v1"
+  
+  # Model to use for show analysis
+  show_analysis_model: "llama3-70b"
+  
+  # Model to use for episode analysis
+  episode_analysis_model: "llama3-70b"
+  
+  # Maximum tokens to generate in analysis
+  max_tokens: 500
+  
+  # Whether to use streaming responses
+  stream_responses: false
+  
+  # Temperature setting for generation (higher = more creative)
+  temperature: 0.7
+
+# User Interface Settings
+# ---------------------
+ui:
+  # Whether to use colors in terminal output
+  use_colors: true
+  
+  # Whether to show progress bars for downloads
+  show_progress_bars: true
+  
+  # Default number of episodes to show in list views
+  default_episode_list_limit: 20
+  
+  # Whether to show debug information in output
+  show_debug_info: false
+  
+  # Whether to confirm before potentially destructive operations
+  confirm_destructive_operations: true
+
+# Network Settings
+# --------------
+network:
+  # User agent string for requests
+  user_agent: "Parchive Podcast Archiver/1.0"
+  
+  # Whether to use a proxy
+  use_proxy: false
+  
+  # Proxy URL if use_proxy is true
+  proxy_url: ""
+  
+  # Whether to verify SSL certificates
+  verify_ssl: true
+  
+  # Maximum number of redirects to follow
+  max_redirects: 5 
